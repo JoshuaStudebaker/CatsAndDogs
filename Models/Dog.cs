@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Doglady.Models
+namespace catlady.Models
 {
   public class Dog
   {
