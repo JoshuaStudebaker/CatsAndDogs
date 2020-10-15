@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using catlady.db;
 using catlady.Models;
+using System.Linq;
 
 namespace catlady.Services
 {
@@ -25,10 +26,10 @@ namespace catlady.Services
       {
         return foundCat;
       }
-      throw new Exception("No cat like that round these parts, partna");
+      throw new Exception("No cat like that round these parts, partner");
     }
 
-    public Cat DeleteCats(string catId)
+    public Cat DeleteCat(string catId)
     {
       int index = FAKEDB.Cats.FindIndex(c => c.Id == catId);
       if (index != -1)
@@ -38,8 +39,24 @@ namespace catlady.Services
 
 
       }
-      throw new Exception("No cat like that round these parts, partna");
+      throw new Exception("No cat like that round these parts, partner");
 
+    }
+
+    public Cat EditCat(Cat body)
+    {
+      Cat foundCat = FAKEDB.Cats.Find(c => c.Id == body.Id);
+      if (foundCat != null)
+      {
+        foundCat.Name = body.Name != null ? body.Name : foundCat.Name;
+        foundCat.Description = body.Description != null ? body.Description : foundCat.Description;
+        foundCat.Id = body.Id;
+        FAKEDB.Cats.Remove(foundCat);
+        FAKEDB.Cats.Add(foundCat);
+        return foundCat;
+
+      }
+      throw new Exception("No cat like that round these parts, partner");
     }
   }
 }

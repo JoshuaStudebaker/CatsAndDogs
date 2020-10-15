@@ -62,7 +62,22 @@ namespace catlady.Controllers
     {
       try
       {
-        return Ok(_catsService.DeleteCats(catId));
+        return Ok(_catsService.DeleteCat(catId));
+      }
+      catch (Exception err)
+      {
+        return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPut("{catId}")]
+    public ActionResult<Cat> EditCat([FromBody] Cat body, string catId)
+    {
+      try
+      {
+        body.Id = catId;
+
+        return Ok(_catsService.EditCat(body));
       }
       catch (Exception err)
       {

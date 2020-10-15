@@ -10,16 +10,16 @@ namespace catlady.Models
       Name = name;
       Description = description;
     }
-     public Cat()
-     {
-         
-     }
+    public Cat()
+    {
+
+    }
 
     [Required]
     [MinLength(5)]
     public string Name { get; set; }
 
-    [Required]
+
     public string Description { get; set; }
     public string Id { get; set; } = Guid.NewGuid().ToString();
   }

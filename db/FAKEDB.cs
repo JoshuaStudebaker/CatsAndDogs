@@ -6,7 +6,7 @@ namespace catlady.db
   public class FAKEDB
   {
     public static List<Cat> Cats { get; set; } = new List<Cat>(){
-         new Cat("Snibbers", "Hes fat")
+         new Cat("Snibbers", "He's fat")
         };
 
     public static List<Dog> Dogs { get; set; } = new List<Dog>(){
