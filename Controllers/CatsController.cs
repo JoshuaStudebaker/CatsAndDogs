@@ -58,7 +58,7 @@ namespace catlady.Controllers
     }
 
     [HttpDelete("{catId}")]
-    public ActionResult<IEnumerable<Cat>> Delete(string catId)
+    public ActionResult<Cat> Delete(string catId)
     {
       try
       {

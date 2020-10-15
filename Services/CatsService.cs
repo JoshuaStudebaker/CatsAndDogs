@@ -30,10 +30,11 @@ namespace catlady.Services
 
     public Cat DeleteCats(string catId)
     {
-      int index = FAKEDB.Cats.FindIndex(c => c.Id == catId)
-      if (index != 0)
+      int index = FAKEDB.Cats.FindIndex(c => c.Id == catId);
+      if (index != -1)
       {
-        FAKEDB.Cats.RemoveAt(index)
+        FAKEDB.Cats.RemoveAt(index);
+        throw new Exception("Successfully deleted");
 
 
       }
